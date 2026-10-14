@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="AstralOS for Xiaomi Redmi Note 8 (ginkgo) — download, install guide and phone specs.">
+    <title>Xiaomi Redmi Note 8 | AstralOS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scroll-reveal.js" defer></script>
+    <link rel="icon" href="logo.png">
+    <script src="download-popup.js" defer></script>
+</head>
+<body>
+
+    <nav>
+        <div class="wrap nav">
+            <div class="nav-left">
+                <div class="nav-links">
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#screens">Screenshots</a>
+                    <a href="index.html#faq">FAQ</a>
+                </div>
+            </div>
+            <div class="logo"><a href="index.html"><img src="logo.png" alt="AstralOS Logo"></a></div>
+            <button type="button" class="btn nav-cta" data-download-soon data-device="Xiaomi Redmi Note 8">Download</button>
+        </div>
+    </nav>
+
+    <div class="wrap dev-crumb"><a href="downloads.html">&lsaquo; Devices</a></div>
+
+    <section class="dev-hero">
+        <div class="wrap">
+            <h1>Xiaomi Redmi Note 8</h1>
+            <p class="dev-sub">codename: <b>ginkgo</b></p>
+            <div class="dev-warn">
+                <svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                <p><b>IMPORTANT:</b> Unlocking the bootloader requires Xiaomi's Mi Unlock tool (wait times of up to 30 days) and permanently wipes all data on the device. The phone must be running the required <b>Android 11</b> stock firmware before installing. An unlocked bootloader is required to install AstralOS.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="dev-body">
+        <div class="wrap dev-layout">
+
+            <div class="dev-main">
+                <h2>Downloads</h2>
+                <button class="btn" type="button" data-download-soon data-device="Xiaomi Redmi Note 8">Download</button>
+                <a class="dev-dl-link" href="https://github.com/AstralOSProject/ota/releases" target="_blank" rel="noopener noreferrer">All releases</a>
+
+                <h2>Guides</h2>
+                <ul class="dev-list">
+                    <li><a href="#install">Installation</a></li>
+                    <li><a href="#update">Updating to a newer build</a></li>
+                    <li><a href="https://github.com/AstralOSProject" target="_blank">Build for yourself</a></li>
+                </ul>
+
+                <h2>Special boot modes</h2>
+                <ul class="dev-list">
+                    <li><b>Recovery:</b> With the device powered off, hold <kbd>Volume Up</kbd> + <kbd>Power</kbd>. Keep holding both buttons until the &ldquo;MI&rdquo; logo appears on the screen, then release.</li>
+                    <li><b>Bootloader/Fastboot:</b> With the device powered off, hold <kbd>Volume Down</kbd> + <kbd>Power</kbd>. Keep holding both buttons until the word &ldquo;FASTBOOT&rdquo; appears on the screen, then release.</li>
+                </ul>
+
+                <h2 id="install">Installation</h2>
+                <ol class="dev-steps">
+                    <li>
+                        <p><b>Prepare the phone.</b> It must be on the required <b>Android 11</b> stock firmware. Enable <b>USB debugging</b> (Settings &rarr; About phone &rarr; tap MIUI version 7 times, then Developer options), verify calls and SMS work on stock, and remove all Google accounts to avoid Factory Reset Protection.</p>
+                    </li>
+                    <li>
+                        <p><b>Unlock the bootloader.</b> Create a Mi account, link the device in <i>Settings &rarr; Additional settings &rarr; Developer options &rarr; Mi Unlock status</i>, then use Xiaomi's Mi Unlock tool on a Windows PC. The tool may impose a wait of up to 30 days. Unlocking wipes the device.</p>
+                    </li>
+                    <li>
+                        <p><b>Download the files.</b> Save the AstralOS zip from the Downloads section above, and keep the matching <code>recovery.img</code> from the release assets next to it on your PC.</p>
+                    </li>
+                    <li>
+                        <p><b>Boot to fastboot.</b> Power off the phone, then hold <kbd>Volume Down</kbd> + <kbd>Power</kbd> until &ldquo;FASTBOOT&rdquo; appears. Connect it to your PC and check the connection:</p>
+                        <code class="dev-code">fastboot devices</code>
+                    </li>
+                    <li>
+                        <p><b>Flash the AstralOS recovery:</b></p>
+                        <code class="dev-code">fastboot flash recovery recovery.img</code>
+                    </li>
+                    <li>
+                        <p><b>Boot straight to recovery — do not boot the system</b>, as it would overwrite the freshly flashed recovery. Hold <kbd>Volume Up</kbd> + <kbd>Power</kbd> until the &ldquo;MI&rdquo; logo appears, then release. Perform <b>Format data / factory reset</b>. If touch does not respond in recovery, use the volume keys to move and the power key to select.</p>
+                    </li>
+                    <li>
+                        <p><b>Sideload the zip.</b> In recovery choose <b>Apply update</b> &rarr; <b>Apply from ADB</b>, then run on your PC (ignore a stopped-at-47% message — it is normal):</p>
+                        <code class="dev-code">adb -d sideload AstralOS-1.0-OFFICIAL-ginkgo.zip</code>
+                    </li>
+                    <li>
+                        <p><b>Reboot.</b> Go back and select <b>Reboot system now</b>. The first boot can take up to 15 minutes.</p>
+                    </li>
+                </ol>
+
+                <h2 id="update">Updating to a newer build</h2>
+                <ul class="dev-list">
+                    <li>Boot to recovery (step 6 key combo) and sideload the new zip exactly like step 7 — <b>no data wipe is needed</b> for same-version updates.</li>
+                    <li>If anything misbehaves after an update, format data is NOT required — wipe cache/dalvik in recovery first, your data stays intact.</li>
+                </ul>
+
+                <div class="dev-help">Need help? Join us on <a href="https://discord.gg/WCUbsQx3kE" target="_blank">AstralOS Discord</a></div>
+            </div>
+
+            <aside class="dev-side">
+                <div class="dev-photo">
+                    <svg viewBox="0 0 180 360" fill="none">
+                        <rect x="4" y="4" width="172" height="352" rx="26" fill="#0d0d0d" stroke="#333" stroke-width="2"/>
+                        <rect x="14" y="14" width="152" height="332" rx="18" fill="#050505" stroke="#1e1e1e" stroke-width="1.5"/>
+                        <path d="M78 15 a12 12 0 0 0 24 0" fill="#050505" stroke="#262626" stroke-width="1.5"/>
+                        <circle cx="90" cy="30" r="4.5" fill="#141414" stroke="#262626" stroke-width="1.5"/>
+                        <path d="M55 336 h70" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <p class="dev-caption">Xiaomi Redmi Note 8 (ginkgo)</p>
+
+                <div class="dev-released"><span>Released</span><span>August 2019</span></div>
+
+                <div class="dev-spec-head">Specifications</div>
+                <table class="dev-spec">
+                    <tr><th>SoC</th><td>Qualcomm SM6125<br>Snapdragon 665</td></tr>
+                    <tr><th>RAM</th><td>3/4/6 GB</td></tr>
+                    <tr><th>CPU</th><td>Octa-core Kryo 260<br>4 &times; 2.0 GHz<br>+ 4 &times; 1.8 GHz</td></tr>
+                    <tr><th>Architecture</th><td>arm64</td></tr>
+                    <tr><th>GPU</th><td>Qualcomm Adreno 610</td></tr>
+                    <tr><th>Display</th><td>6.3&quot; IPS LCD, 60 Hz<br>1080 &times; 2340</td></tr>
+                    <tr><th>Battery</th><td>4000 mAh</td></tr>
+                    <tr><th>Storage</th><td>32/64/128 GB<br>microSD up to 256 GB</td></tr>
+                </table>
+            </aside>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <div class="social">
+                <a href="https://github.com/AstralOSProject" target="_blank">GitHub</a>
+                <a href="https://t.me/+lRYgKvE7l-hiZGE0" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <a href="https://discord.gg/WCUbsQx3kE" target="_blank">Discord</a>
+                <a href="https://www.tiktok.com/@astralosproject" target="_blank">TikTok</a>
+                <a href="mailto:astralosproject@proton.me">Email</a>
+                <a href="https://astralosproject.github.io/legal/">Legal</a>
+            </div>
+            <p class="copy">Copyright &copy; 2026 AstralOS Project. Based in Poland.</p>
+        </div>
+    </footer>
+
+    <dialog class="download-dialog" id="download-soon-dialog" aria-labelledby="download-soon-title" aria-describedby="download-soon-description">
+        <div class="download-dialog-inner">
+            <button class="download-dialog-close" type="button" data-close-download-soon aria-label="Close">&times;</button>
+            <div class="download-dialog-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+            </div>
+            <p class="download-dialog-kicker">ASTRALOS DEVICE BUILDS</p>
+            <h2 id="download-soon-title">Download Soon</h2>
+            <p class="download-dialog-copy" id="download-soon-description">An AstralOS build for No build for <strong class="download-dialog-device" data-popup-device>Xiaomi Redmi Note 8</strong> yet. Check back for updates.</p>
+            <div class="download-dialog-actions">
+                <a class="btn download-dialog-build" data-popup-build href="#" target="_blank" rel="noopener noreferrer" hidden>View Builds</a>
+                <button class="btn" type="button" data-close-download-soon>Got it</button>
+            </div>
+        </div>
+    </dialog>
+
+</body>
+</html>

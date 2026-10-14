@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="AstralOS for LG V30 (joan) — download, install guide and phone specs.">
+    <title>LG V30 | AstralOS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scroll-reveal.js" defer></script>
+    <link rel="icon" href="logo.png">
+    <script src="download-popup.js" defer></script>
+</head>
+<body>
+
+    <nav>
+        <div class="wrap nav">
+            <div class="nav-left">
+                <div class="nav-links">
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#screens">Screenshots</a>
+                    <a href="index.html#faq">FAQ</a>
+                </div>
+            </div>
+            <div class="logo"><a href="index.html"><img src="logo.png" alt="AstralOS Logo"></a></div>
+            <button type="button" class="btn nav-cta" data-download-soon data-device="LG V30" data-available="true" data-build-url="https://github.com/AstralOSProject/ota/releases">Download</button>
+        </div>
+    </nav>
+
+    <div class="wrap dev-crumb"><a href="downloads.html">&lsaquo; Devices</a></div>
+
+    <section class="dev-hero">
+        <div class="wrap">
+            <h1>LG V30</h1>
+            <p class="dev-sub">codename: <b>joan</b> &mdash; one build for all V30 variants</p>
+            <div class="dev-warn">
+                <svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                <p><b>IMPORTANT:</b> LG provides <b>no official bootloader unlock</b> — only unofficial methods exist, which are unsupported and used at your own risk. The phone must be running the required <b>Android 9.0</b> stock firmware, and your model number must match the supported list exactly (H930, H930DS, US998, H931, H932, H933, LS998, VS996, V300L, V300K, V300S).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="dev-body">
+        <div class="wrap dev-layout">
+
+            <div class="dev-main">
+                <h2>Downloads</h2>
+                <button class="btn" type="button" data-download-soon data-device="LG V30" data-available="true" data-build-url="https://github.com/AstralOSProject/ota/releases">Download</button>
+                <div class="dev-build">
+                    <b>AstralOS 1.0</b> OFFICIAL &middot; Android <b>15</b> &middot; LineageOS <b>22.2</b> base &middot; <b>1.0</b> GB<br>
+                    <b>SHA1:</b> f19770a4235df7a68d7e46b6cb47a073f4476907
+                </div>
+
+                <h2>Guides</h2>
+                <ul class="dev-list">
+                    <li><a href="#install">Installation</a></li>
+                    <li><a href="#update">Updating to a newer build</a></li>
+                    <li><a href="https://github.com/AstralOSProject" target="_blank">Build for yourself</a></li>
+                </ul>
+
+                <h2>Special boot modes</h2>
+                <ul class="dev-list">
+                    <li><b>Recovery:</b> With the device powered off, hold <kbd>Volume Down</kbd> + <kbd>Power</kbd> until the LG logo appears, then release Power for a second and hold it again until recovery comes up. Accept the factory-reset prompt with the hardware buttons — it does <b>not</b> reset your phone, it only boots the custom recovery.</li>
+                    <li><b>Fastboot:</b> With the device powered off, hold <kbd>Volume Up</kbd> + <kbd>Power</kbd>.</li>
+                </ul>
+
+                <h2>Known quirks</h2>
+                <ul class="dev-list">
+                    <li><b>IMS / VoLTE:</b> may need extra setup on some carriers.</li>
+                    <li><b>Device integrity:</b> Play Integrity checks may fail — normal for custom ROMs.</li>
+                </ul>
+
+                <h2 id="install">Installation</h2>
+                <ol class="dev-steps">
+                    <li>
+                        <p><b>Check your model.</b> Your model number must be an exact match for the two install methods below — <b>fastboot</b>: H930, H930DS, US998 &middot; <b>root + dd</b>: H931, H932, H933, LS998, VS996, V300L, V300K, V300S.</p>
+                    </li>
+                    <li>
+                        <p><b>Prepare the phone.</b> It must be on the required <b>Android 9.0</b> stock firmware. Enable <b>USB debugging</b> (Settings &rarr; About phone &rarr; tap Build number 7 times, then Developer options), verify calls and SMS work on stock, and remove all Google accounts to avoid Factory Reset Protection.</p>
+                    </li>
+                    <li>
+                        <p><b>Unlock the bootloader</b> (fastboot method only — the root + dd method below does not need it). There is no official LG unlock tool anymore; only unofficial methods exist. They are unsupported — use at your own risk. Unlocking wipes the device.</p>
+                    </li>
+                    <li>
+                        <p><b>Download the files.</b> Save the AstralOS zip from the Downloads section above, and keep the matching <code>recovery.img</code> from the release assets next to it on your PC.</p>
+                    </li>
+                    <li>
+                        <p><b>Method A &mdash; fastboot</b> (H930, H930DS, US998): power off, hold <kbd>Volume Up</kbd> + <kbd>Power</kbd> to enter fastboot, connect the PC and check:</p>
+                        <code class="dev-code">fastboot devices</code>
+                        <p>Then flash the AstralOS recovery:</p>
+                        <code class="dev-code">fastboot flash recovery recovery.img</code>
+                        <p>Do <b>not</b> boot the system now — it would overwrite the freshly flashed recovery. Go straight to step 7.</p>
+                    </li>
+                    <li>
+                        <p><b>Method B &mdash; root + dd</b> (all other models): with stock rooted and USB debugging on, push and write the recovery:</p>
+                        <code class="dev-code">adb -d push recovery.img /sdcard/recovery.img
+adb -d shell
+su
+dd if=/sdcard/recovery.img of=/dev/block/bootdevice/by-name/recovery
+reboot recovery</code>
+                    </li>
+                    <li>
+                        <p><b>Boot to recovery.</b> Power off, hold <kbd>Volume Down</kbd> + <kbd>Power</kbd> until the LG logo, release Power for a second, hold it again — accept the factory-reset prompt with the hardware buttons (it does not wipe anything). In recovery, perform <b>Format data / factory reset</b>. If touch does not respond, use volume keys to move and power to select.</p>
+                    </li>
+                    <li>
+                        <p><b>Sideload the zip.</b> In recovery choose <b>Apply update</b> &rarr; <b>Apply from ADB</b>, then run on your PC (ignore a stopped-at-47% message — it is normal):</p>
+                        <code class="dev-code">adb -d sideload AstralOS-1.0-OFFICIAL-joan.zip</code>
+                    </li>
+                    <li>
+                        <p><b>Reboot.</b> Go back and select <b>Reboot system now</b>. The first boot can take up to 15 minutes.</p>
+                    </li>
+                </ol>
+
+                <h2 id="update">Updating to a newer build</h2>
+                <ul class="dev-list">
+                    <li>Boot to recovery (step 7 key combo) and sideload the new zip exactly like step 8 — <b>no data wipe is needed</b> for same-version updates.</li>
+                    <li>If anything misbehaves after an update, wipe cache/dalvik in recovery first — your data stays intact.</li>
+                </ul>
+
+                <div class="dev-help">Need help? Join us on <a href="https://discord.gg/WCUbsQx3kE" target="_blank">AstralOS Discord</a></div>
+            </div>
+
+            <aside class="dev-side">
+                <div class="dev-photo">
+                    <svg viewBox="0 0 180 360" fill="none">
+                        <rect x="4" y="4" width="172" height="352" rx="24" fill="#0d0d0d" stroke="#333" stroke-width="2"/>
+                        <rect x="14" y="14" width="152" height="332" rx="16" fill="#050505" stroke="#1e1e1e" stroke-width="1.5"/>
+                        <path d="M74 24 h32" stroke="#262626" stroke-width="5" stroke-linecap="round"/>
+                        <circle cx="118" cy="24" r="4" fill="#141414" stroke="#262626" stroke-width="1.5"/>
+                        <path d="M55 336 h70" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <p class="dev-caption">LG V30 (joan)</p>
+
+                <div class="dev-released"><span>Released</span><span>August 2017</span></div>
+
+                <div class="dev-spec-head">Specifications</div>
+                <table class="dev-spec">
+                    <tr><th>SoC</th><td>Qualcomm MSM8998<br>Snapdragon 835</td></tr>
+                    <tr><th>RAM</th><td>4 GB</td></tr>
+                    <tr><th>CPU</th><td>Octa-core Kryo<br>4 &times; 2.45 GHz<br>+ 4 &times; 1.9 GHz</td></tr>
+                    <tr><th>Architecture</th><td>arm64</td></tr>
+                    <tr><th>GPU</th><td>Qualcomm Adreno 540</td></tr>
+                    <tr><th>Display</th><td>6.0&quot; P-OLED<br>2880 &times; 1440 (536 PPI)</td></tr>
+                    <tr><th>Battery</th><td>3300 mAh</td></tr>
+                    <tr><th>Storage</th><td>64/128 GB<br>microSD up to 2 TB</td></tr>
+                </table>
+            </aside>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <div class="social">
+                <a href="https://github.com/AstralOSProject" target="_blank">GitHub</a>
+                <a href="https://t.me/+lRYgKvE7l-hiZGE0" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <a href="https://discord.gg/WCUbsQx3kE" target="_blank">Discord</a>
+                <a href="https://www.tiktok.com/@astralosproject" target="_blank">TikTok</a>
+                <a href="mailto:astralosproject@proton.me">Email</a>
+                <a href="https://astralosproject.github.io/legal/">Legal</a>
+            </div>
+            <p class="copy">Copyright &copy; 2026 AstralOS Project. Based in Poland.</p>
+        </div>
+    </footer>
+
+    <dialog class="download-dialog" id="download-soon-dialog" aria-labelledby="download-soon-title" aria-describedby="download-soon-description">
+        <div class="download-dialog-inner">
+            <button class="download-dialog-close" type="button" data-close-download-soon aria-label="Close">&times;</button>
+            <div class="download-dialog-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+            </div>
+            <p class="download-dialog-kicker">ASTRALOS DEVICE BUILDS</p>
+            <h2 id="download-soon-title">Download Soon</h2>
+            <p class="download-dialog-copy" id="download-soon-description">A build for LG V30 is published.</p>
+            <div class="download-dialog-actions">
+                <a class="btn download-dialog-build" data-popup-build href="#" target="_blank" rel="noopener noreferrer" hidden>View Builds</a>
+                <button class="btn" type="button" data-close-download-soon>Got it</button>
+            </div>
+        </div>
+    </dialog>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="AstralOS for Samsung Galaxy S20 FE (r8q) — download, install guide and phone specs.">
+    <title>Samsung Galaxy S20 FE | AstralOS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scroll-reveal.js" defer></script>
+    <link rel="icon" href="logo.png">
+    <script src="download-popup.js" defer></script>
+</head>
+<body>
+
+    <nav>
+        <div class="wrap nav">
+            <div class="nav-left">
+                <div class="nav-links">
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#screens">Screenshots</a>
+                    <a href="index.html#faq">FAQ</a>
+                </div>
+            </div>
+            <div class="logo"><a href="index.html"><img src="logo.png" alt="AstralOS Logo"></a></div>
+            <button type="button" class="btn nav-cta" data-download-soon data-device="Samsung Galaxy S20 FE" data-available="true" data-build-url="https://github.com/AstralOSProject/ota/releases">Download</button>
+        </div>
+    </nav>
+
+    <div class="wrap dev-crumb"><a href="downloads.html">&lsaquo; Devices</a></div>
+
+    <section class="dev-hero">
+        <div class="wrap">
+            <h1>Samsung Galaxy S20 FE</h1>
+            <p class="dev-sub">codename: <b>r8q</b></p>
+            <div class="dev-warn">
+                <svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                <p><b>IMPORTANT:</b> OEM unlocking permanently trips the Knox counter (Samsung Pay, Secure Folder and warranty are affected) and wipes the entire device. Remove all Google and Samsung accounts before unlocking. AstralOS must be flashed on a device running stock Android 13 (SM-G780G).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="dev-body">
+        <div class="wrap dev-layout">
+
+            <div class="dev-main">
+                <h2>Downloads</h2>
+                <button class="btn" type="button" data-download-soon data-device="Samsung Galaxy S20 FE" data-available="true" data-build-url="https://github.com/AstralOSProject/ota/releases">Download</button>
+                <div class="dev-build">
+                    <b>AstralOS 1.0</b> OFFICIAL &middot; Android <b>15</b> &middot; LineageOS <b>22.2</b> base &middot; <b>1.2 GB</b><br>
+                    <b>SHA1:</b> 8994ee0b00d4fe174aea8218d2613b50b43e5220
+                </div>
+
+                <h2>Guides</h2>
+                <ul class="dev-list">
+                    <li><a href="#install">Installation</a></li>
+                    <li><a href="#update">Updating to a newer build</a></li>
+                    <li><a href="https://github.com/AstralOSProject" target="_blank">Build for yourself</a></li>
+                </ul>
+
+                <h2>Special boot modes</h2>
+                <ul class="dev-list">
+                    <li><b>Recovery:</b> With the device powered off and the USB cable connected to your PC, hold <kbd>Volume Up</kbd> + <kbd>Power</kbd>.</li>
+                    <li><b>Download (Odin) mode:</b> With the device powered off, hold <kbd>Volume Down</kbd> + <kbd>Power</kbd> while connecting the USB cable to your PC.</li>
+                </ul>
+
+                <h2 id="install">Installation</h2>
+                <ol class="dev-steps">
+                    <li>
+                        <p><b>Prepare the phone.</b> It must be on stock <b>Android 13</b> (SM-G780G). In Developer options enable <b>OEM unlocking</b>, then remove every Google and Samsung account from the device.</p>
+                    </li>
+                    <li>
+                        <p><b>Boot to Download mode and unlock the bootloader.</b> Power off, hold <kbd>Volume Down</kbd> + <kbd>Power</kbd> while plugging in USB. At the warning screen press <kbd>Volume Up</kbd> once to unlock — this wipes the device and trips Knox.</p>
+                    </li>
+                    <li>
+                        <p><b>Flash the AstralOS recovery and vbmeta</b> from your PC (with the phone in Download mode):</p>
+                        <code class="dev-code">heimdall flash --RECOVERY recovery.img --VBMETA vbmeta.img</code>
+                        <p>Use the <code>recovery.img</code> and <code>vbmeta.img</code> built alongside the AstralOS zip (Heimdall works on Linux/macOS; Odin is the Windows alternative).</p>
+                    </li>
+                    <li>
+                        <p><b>Boot to recovery.</b> With the USB cable connected to your PC, hold <kbd>Volume Up</kbd> + <kbd>Power</kbd> until the recovery appears, then perform a <b>Factory reset</b>.</p>
+                    </li>
+                    <li>
+                        <p><b>Sideload the zip.</b> In recovery choose <b>Apply update</b> &rarr; <b>ADB sideload</b>, then run on your PC:</p>
+                        <code class="dev-code">adb -d sideload AstralOS-1.0-OFFICIAL-r8q.zip</code>
+                    </li>
+                    <li>
+                        <p><b>Reboot.</b> Select <b>Reboot system now</b>. The first boot takes a few minutes.</p>
+                    </li>
+                </ol>
+
+                <h2 id="update">Updating to a newer build</h2>
+                <ul class="dev-list">
+                    <li>Sideload the new zip from recovery exactly like step 4&ndash;5 above — <b>no data wipe is needed</b> for same-version updates.</li>
+                    <li>If anything misbehaves after an update, wipe cache/dalvik in recovery first — your data stays intact.</li>
+                </ul>
+
+                <div class="dev-help">Need help? Join us on <a href="https://discord.gg/WCUbsQx3kE" target="_blank">AstralOS Discord</a></div>
+            </div>
+
+            <aside class="dev-side">
+                <div class="dev-photo">
+                    <svg viewBox="0 0 180 360" fill="none">
+                        <rect x="4" y="4" width="172" height="352" rx="26" fill="#0d0d0d" stroke="#333" stroke-width="2"/>
+                        <rect x="14" y="14" width="152" height="332" rx="18" fill="#050505" stroke="#1e1e1e" stroke-width="1.5"/>
+                        <circle cx="90" cy="34" r="5" fill="#141414" stroke="#262626" stroke-width="1.5"/>
+                        <path d="M55 336 h70" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <p class="dev-caption">Samsung Galaxy S20 FE (r8q)</p>
+
+                <div class="dev-released"><span>Released</span><span>October 2020</span></div>
+
+                <div class="dev-spec-head">Specifications</div>
+                <table class="dev-spec">
+                    <tr><th>SoC</th><td>Qualcomm SM8250<br>Snapdragon 865</td></tr>
+                    <tr><th>RAM</th><td>6/8 GB LPDDR5</td></tr>
+                    <tr><th>CPU</th><td>Octa-core Kryo 585<br>1 &times; 2.84 GHz + 3 &times; 2.42 GHz<br>+ 4 &times; 1.8 GHz</td></tr>
+                    <tr><th>Architecture</th><td>arm64</td></tr>
+                    <tr><th>GPU</th><td>Qualcomm Adreno 650</td></tr>
+                    <tr><th>Display</th><td>6.5&quot; Super AMOLED, 120 Hz<br>1080 &times; 2400</td></tr>
+                    <tr><th>Battery</th><td>4500 mAh</td></tr>
+                    <tr><th>Storage</th><td>128/256 GB</td></tr>
+                </table>
+            </aside>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <div class="social">
+                <a href="https://github.com/AstralOSProject" target="_blank">GitHub</a>
+                <a href="https://t.me/+lRYgKvE7l-hiZGE0" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <a href="https://discord.gg/WCUbsQx3kE" target="_blank">Discord</a>
+                <a href="https://www.tiktok.com/@astralosproject" target="_blank">TikTok</a>
+                <a href="mailto:astralosproject@proton.me">Email</a>
+                <a href="https://astralosproject.github.io/legal/">Legal</a>
+            </div>
+            <p class="copy">Copyright &copy; 2026 AstralOS Project. Based in Poland.</p>
+        </div>
+    </footer>
+
+    <dialog class="download-dialog" id="download-soon-dialog" aria-labelledby="download-soon-title" aria-describedby="download-soon-description">
+        <div class="download-dialog-inner">
+            <button class="download-dialog-close" type="button" data-close-download-soon aria-label="Close">&times;</button>
+            <div class="download-dialog-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+            </div>
+            <p class="download-dialog-kicker">ASTRALOS DEVICE BUILDS</p>
+            <h2 id="download-soon-title">Download Soon</h2>
+            <p class="download-dialog-copy" id="download-soon-description">A build for Samsung Galaxy S20 FE is published.</p>
+            <div class="download-dialog-actions">
+                <a class="btn download-dialog-build" data-popup-build href="#" target="_blank" rel="noopener noreferrer" hidden>View Builds</a>
+                <button class="btn" type="button" data-close-download-soon>Got it</button>
+            </div>
+        </div>
+    </dialog>
+
+</body>
+</html>

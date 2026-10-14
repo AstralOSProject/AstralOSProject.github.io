@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="AstralOS — a clean, fast AOSP-based custom ROM built on LineageOS.">
+    <title>AstralOS | Official Site</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scroll-reveal.js" defer></script>
+    <link rel="icon" href="logo.png">
+</head>
+<body>
+
+    <nav>
+        <div class="wrap nav">
+            <div class="nav-left">
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#screens">Screenshots</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+            </div>
+            <div class="logo"><a href="index.html"><img src="logo.png" alt="AstralOS Logo"></a></div>
+            <a href="downloads.html" class="btn nav-cta">Download</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <svg class="star" style="top: 15%; left: 8%;" viewBox="0 0 24 24" fill="white"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+        <svg class="star" style="top: 22%; right: 12%; width: 14px;" viewBox="0 0 24 24" fill="white"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+        <svg class="star" style="top: 45%; left: 14%; width: 11px;" viewBox="0 0 24 24" fill="white"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+        <svg class="star" style="bottom: 22%; right: 10%; width: 22px;" viewBox="0 0 24 24" fill="white"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+
+        <div class="wrap">
+            <div class="hero-copy">
+                <p class="kicker">Android 15 <span>&middot;</span> LineageOS base</p>
+                <h1>Android,<br>but refined.</h1>
+                <p class="lead">A free, open-source ROM based on LineageOS, with no Google apps included and a few extra controls in Settings.</p>
+                <div class="hero-actions">
+                    <a href="downloads.html" class="btn">Browse devices</a>
+                    <a href="#screens" class="hero-secondary">See screenshots <span aria-hidden="true">&rarr;</span></a>
+                </div>
+            </div>
+            <div class="hero-product" aria-label="AstralOS home screen preview">
+                <div class="hero-device">
+                    <img src="shot4.png" alt="AstralOS home screen on a phone">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="screens">
+        <div class="wrap">
+            <div class="section-head">
+                <p class="kicker">Screenshots</p>
+                <h2>Screens from the ROM</h2>
+            </div>
+            <div class="screenshot-grid">
+                <div class="card screen-card"><img src="shot1.png" alt="AstralOS app drawer"></div>
+                <div class="card screen-card"><img src="shot2.png" alt="AstralOS setup wizard"></div>
+                <div class="card screen-card"><img src="shot3.png" alt="AstralOS about phone"></div>
+                <div class="card screen-card"><img src="shot4.png" alt="AstralOS home screen"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="wrap">
+            <div class="section-head">
+                <p class="kicker">Features</p>
+                <h2>What’s in the ROM</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feat-card"><h4>Performance</h4><p>ZRAM, input boost, and compiler tuning help keep everyday actions responsive.</p></div>
+                <div class="feat-card"><h4>No Google apps</h4><p>The ROM ships without Google apps. Install a GApps package separately if you need one.</p></div>
+                <div class="feat-card"><h4>Google Sans Flex</h4><p>Google Sans Flex is used across the system interface.</p></div>
+                <div class="feat-card"><h4>Open source</h4><p>The source is public on GitHub. The repositories below are a good place to start.</p></div>
+                <div class="feat-card"><h4>Extra controls</h4><p>Settings includes options for the lockscreen clock, animation speed, flashlight gestures, and screenshots.</p></div>
+                <div class="feat-card"><h4>LineageOS base</h4><p>AstralOS 1.0 is based on LineageOS 22.2 and Android 15.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="source">
+        <div class="wrap">
+            <div class="section-head">
+                <p class="kicker">Source code</p>
+                <h2>AstralOS on GitHub</h2>
+                <p>These repositories cover the framework, Settings, miatoll support, and the build manifest.</p>
+            </div>
+            <div class="source-grid">
+                <a class="card source-card" href="https://github.com/AstralOSProject/frameworks_base" target="_blank" rel="noopener noreferrer">
+                    <div class="source-card-top"><span>01 / PLATFORM</span><span aria-hidden="true">↗</span></div>
+                    <h3>Android Framework</h3>
+                    <p>AstralOS changes to the Android framework.</p>
+                    <span class="source-repo">frameworks_base</span>
+                </a>
+                <a class="card source-card" href="https://github.com/AstralOSProject/packages_apps_Settings" target="_blank" rel="noopener noreferrer">
+                    <div class="source-card-top"><span>02 / APP</span><span aria-hidden="true">↗</span></div>
+                    <h3>Settings</h3>
+                    <p>AstralOS changes to Android Settings.</p>
+                    <span class="source-repo">packages_apps_Settings</span>
+                </a>
+                <a class="card source-card" href="https://github.com/AstralOSProject/device_xiaomi_miatoll" target="_blank" rel="noopener noreferrer">
+                    <div class="source-card-top"><span>03 / DEVICE</span><span aria-hidden="true">↗</span></div>
+                    <h3>Miatoll device tree</h3>
+                    <p>Device files for the Redmi Note 9 Pro family.</p>
+                    <span class="source-repo">device_xiaomi_miatoll</span>
+                </a>
+                <a class="card source-card" href="https://github.com/AstralOSProject/manifest" target="_blank" rel="noopener noreferrer">
+                    <div class="source-card-top"><span>04 / BUILD</span><span aria-hidden="true">↗</span></div>
+                    <h3>Build manifest</h3>
+                    <p>The repo manifest used to sync AstralOS source.</p>
+                    <span class="source-repo">manifest</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="wrap-text">
+            <div class="section-head">
+                <p class="kicker">FAQ</p>
+                <h2>Common questions</h2>
+            </div>
+            <div class="faq-grid">
+                <details class="faq-item" open>
+                    <summary>How do I install AstralOS?</summary>
+                    <p>Choose your device on Downloads and follow its installation guide. The guide lists the required files and steps for that model.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Are Google services included?</summary>
+                    <p>No. Flash a GApps package after installing AstralOS if you want Google apps.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Will OTA updates work?</summary>
+                    <p>OTA updates are built in. Availability depends on whether a build has been published for your device.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="wrap">
+            <div class="section-head">
+                <p class="kicker">Contributors</p>
+                <h2>People behind the project</h2>
+            </div>
+            <div class="team-grid">
+                <div class="card team-card"><img src="avatar.png" alt="bearbeing"><h4>bearbeing</h4><p>Founder, Developer &amp; Designer</p></div>
+                <div class="card team-card"><img src="avatar_cliff.png" alt="Cliff Emmanuel"><h4>Cliff Emmanuel</h4><p>Designer</p></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-wrap" id="download">
+        <div class="wrap">
+            <div class="cta-box">
+                <p class="kicker">Downloads</p>
+                <h2>Ready to install?</h2>
+                <p>Choose your device to check build status and read its installation guide.</p>
+                <a href="downloads.html" class="btn">Browse devices</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="wrap">
+            <div class="social">
+                <a href="https://github.com/AstralOSProject" target="_blank">GitHub</a>
+                <a href="https://t.me/+lRYgKvE7l-hiZGE0" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <a href="https://discord.gg/WCUbsQx3kE" target="_blank">Discord</a>
+                <a href="https://www.tiktok.com/@astralosproject" target="_blank">TikTok</a>
+                <a href="mailto:astralosproject@proton.me">Email</a>
+                <a href="https://astralosproject.github.io/legal/">Legal</a>
+            </div>
+            <p class="copy">Copyright &copy; 2026 AstralOS Project. Based in Poland.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
